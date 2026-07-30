@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mishi-backend
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:mishi}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: ${MYSQL_USERNAME:mishi}
+    password: ${MYSQL_PASSWORD:mishi123}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2s
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:mishi}
+    password: ${RABBITMQ_PASSWORD:mishi123}
+  jackson:
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+
+mishi:
+  order:
+    timeout-scan-delay-ms: 30000
+  agent:
+    mode: llm-with-fallback
+  llm:
+    api-key: ${MISHI_LLM_API_KEY:}
+    base-url: ${MISHI_LLM_BASE_URL:https://api.openai.com/v1}
+    model: ${MISHI_LLM_MODEL:gpt-4o-mini}
+    timeout-seconds: ${MISHI_LLM_TIMEOUT_SECONDS:10}

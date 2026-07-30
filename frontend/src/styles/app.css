@@ -1,0 +1,8 @@
+.page { min-height: 100vh; background: #f5f7fb; }
+.hero { height: auto; padding: 28px 48px; background: linear-gradient(135deg, #101828, #7c2d12); }
+.heroTitle.ant-typography { color: #fff; margin: 0; }
+.heroText { color: rgba(255,255,255,.78); }
+.content { padding: 24px 48px; }
+.agentInput { width: 100%; margin-bottom: 16px; }
+.reply { background: #fafafa; }
+@media (max-width: 720px) { .hero, .content { padding: 20px; } }
